@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ProjectController;
+<<<<<<< HEAD
 use App\Http\Controllers\GoogleController;
+=======
+>>>>>>> 9a64928dd547e0700acbfc06b17660f1e401e435
 
 
 /*
@@ -22,7 +25,10 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function() {
+<<<<<<< HEAD
 Route::get('googleChart', [GoogleController::class, 'googlepiechart']);
+=======
+>>>>>>> 9a64928dd547e0700acbfc06b17660f1e401e435
 Route::get('/statuses', [StatusController::class, 'index']);
 Route::get('statuses/create-page', [StatusController::class, 'create'])->name('create-page');
 Route::post('statuses/create', [StatusController::class, 'store'])->name('create');
