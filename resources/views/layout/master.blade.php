@@ -2,13 +2,13 @@
 <html lang="id">
 
 <head>
-
+<title>@yield('title') Data Klien</title>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <meta name="description" content="">
    <meta name="author" content="">
-
+   <link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.min.css"/>
    <!-- Custom fonts for this template-->
    <link href="/assets/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
    <link
@@ -28,7 +28,7 @@
       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
          <!-- Sidebar - Brand -->
-         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('googleChart') }}">
             <div class="sidebar-brand-text mx-3">Dashboard</div>
          </a>
 
@@ -37,7 +37,7 @@
 
          <!-- Nav Item - Dashboard -->
          {{-- <li class="nav-item active">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ url('echarts') }}">
                <i class="fas fa-fw fa-tachometer-alt"></i>
                <span>Dashboard</span></a>
          </li> --}}
@@ -59,12 +59,8 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                <div class="bg-white py-2 collapse-inner rounded">
-                  <a class="collapse-item" href="{{ url('books') }}">Data Buku</a>
-                  <a class="collapse-item" href="{{ url('publishers') }}">Data Penerbit</a>
-                  <a class="collapse-item" href="{{ url('students') }}">Data Siswa</a>
-                  <a class="collapse-item" href="{{ url('rayons') }}">Data Rayon</a>
-                  <a class="collapse-item" href="{{ url('studentGroups') }}">Data Rombel</a>
-                  <a class="collapse-item" href="{{ url('borrowings') }}">Data Peminjam</a>
+                  <a class="collapse-item" href="{{ url('statuses') }}">Status</a>
+                  <a class="collapse-item" href="{{ url('projects') }}">Data Klien</a>
                </div>
             </div>
          </li>
@@ -90,7 +86,7 @@
                @csrf
                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                this.closest('form').submit();">
-                  <i class="fas fa-fw fa-chart-area"></i>
+                  <i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
                   <span>Logout</span></a>
             </form>
          </li>
@@ -124,7 +120,9 @@
          <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                <div class="copyright text-center my-auto">
-                  <span>Copyright &copy; Your Website 2020</span>
+               <footer class="main-footer">
+               <div class="footer-left">
+                  PT CEMERLANG DIGITAL TECH &copy; {{ date('Y') }}
                </div>
             </div>
          </footer>

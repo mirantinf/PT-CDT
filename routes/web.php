@@ -1,12 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\RayonController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\BorrowingController;
-use App\Http\Controllers\PublisherController;
-use App\Http\Controllers\StudentGroupController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\GoogleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +18,25 @@ use App\Http\Controllers\StudentGroupController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
-Route::get('/search', [StudentController::class, 'search'])->name('search');
-Route::get('/search_borrow', [BorrowingController::class, 'search'])->name('search_borrow');
-Route::get('/search_book', [BookController::class, 'search'])->name('search_book');
-Route::get('/search_publish', [PublisherBookController::class, 'search'])->name('search_publish');
-Route::resource('/students', StudentController::class)->middleware(['auth']);
-Route::resource('/studentGroups', StudentGroupController::class)->middleware(['auth']);
-Route::resource('/rayons', RayonController::class)->middleware(['auth']);
-Route::resource('/publishers', PublisherController::class)->middleware(['auth']);
-Route::resource('/books', BookController::class)->middleware(['auth']);
-Route::resource('/borrowings', BorrowingController::class)->middleware(['auth']);
+
+Route::middleware('auth')->group(function() {
+Route::get('googleChart', [GoogleController::class, 'googlepiechart']);
+Route::get('/statuses', [StatusController::class, 'index']);
+Route::get('statuses/create-page', [StatusController::class, 'create'])->name('create-page');
+Route::post('statuses/create', [StatusController::class, 'store'])->name('create');
+Route::get('statuses/edit/{statusId}', [StatusController::class, 'edit']);
+Route::patch('statuses/update/{statusId}', [StatusController::class, 'update']);
+Route::delete('statuses/destroy/{statusId}', [StatusController::class, 'destroy']);
+
+Route::get('/projects', [ProjectController::class, 'index']);
+Route::get('projects/create-page', [ProjectController::class, 'create'])->name('create-page');
+Route::post('projects/create', [ProjectController::class, 'store'])->name('create');
+Route::get('projects/edit/{projectId}', [ProjectController::class, 'edit']);
+Route::patch('projects/update/{projectId}', [ProjectController::class, 'update']);
+Route::delete('projects/destroy/{projectId}', [ProjectController::class, 'destroy']);
+});
+
 
 require __DIR__ . '/auth.php';
