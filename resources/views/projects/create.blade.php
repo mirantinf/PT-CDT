@@ -1,5 +1,5 @@
 @extends('layout.master')
-  
+
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -11,7 +11,7 @@
             </div>
         </div>
     </div>
-    <br>  
+    <br>
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -22,10 +22,10 @@
             </ul>
         </div>
     @endif
-        
+
     <form action="{{ URL::to('/projects/create')}}" method="POST" enctype="multipart/form-data">
         @csrf
-        
+
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -46,6 +46,7 @@
                 </div>
                 <div class="form-group">
                     <strong>Budget</strong>
+                    <span class="input-group-text">Rp</span>
                     <input type="text" class="form-control" name="budget" >
                 </div>
                 <div class="form-group">
@@ -61,6 +62,6 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-        
+
     </form>
 @endsection

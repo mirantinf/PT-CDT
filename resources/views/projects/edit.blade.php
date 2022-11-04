@@ -46,8 +46,9 @@
                     <input type="text" name="project_information" class="form-control" value="{{$project->project_information}}">
                 </div>
                 <div class="form-group">
-                    <strong>budget</strong>
-                    <input type="text" name="budget"  class="form-control" value="@currency($project->budget)">
+                    <strong>Budget</strong>
+                    <span class="input-group-text">Rp</span>
+                    <input type="text" name="budget"  class="form-control" value="{{$project->budget}}">
                 </div>
                 <div class="form-group">
                 <strong>Status</strong>
