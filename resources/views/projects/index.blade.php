@@ -50,12 +50,12 @@
 								<td>{{ $project->client_name }}</td>
 								<td>{{ $project->tlp_client }}</td>
 								<td>{{ $project->project_information }}</td>
-								<td>{{ $project->budget }}</td>
-								@if($project->status === null) 
+								<td>@currency( $project->budget )</td>
+								@if($project->status === null)
 								<td>
                                     Tidak Ada Status
                                 </td>
-								@else 
+								@else
 								<td>{{ $project->status->status_name}}</td>
 								@endif
                                 <td>
@@ -74,5 +74,5 @@
 </div>
 
     {!! $projects->links() !!}
-        
+
 @endsection
