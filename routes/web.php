@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\PDFController;
+
 
 
 /*
@@ -38,6 +41,16 @@ Route::post('projects/create', [ProjectController::class, 'store'])->name('creat
 Route::get('projects/edit/{projectId}', [ProjectController::class, 'edit']);
 Route::patch('projects/update/{projectId}', [ProjectController::class, 'update']);
 Route::delete('projects/destroy/{projectId}', [ProjectController::class, 'destroy']);
+
+Route::get('/invoices', [InvoiceController::class, 'index']);
+Route::get('invoices/create-invoice', [InvoiceController::class, 'create'])->name('create-invoice');
+Route::post('invoices/create', [InvoiceController::class, 'store'])->name('create');
+Route::get('invoices/edit/{invoiceId}', [InvoiceController::class, 'edit']);
+Route::patch('invoices/update/{invoiceId}', [InvoiceController::class, 'update']);
+Route::delete('invoices/destroy/{invoiceId}', [InvoiceController::class, 'destroy']);
+
+
+Route::get('invoices/print/{invoiceId}',  [InvoiceController::class, 'generateInvoice']);
 });
 
 
