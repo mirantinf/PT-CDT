@@ -43,7 +43,7 @@ class InvoiceController extends Controller
         $invoice->price = $request->price;
         $invoice->save();
 
-        return redirect('/projects')
+        return redirect('/invoices')
                         ->with('success','Berhasil Menyimpan !');
     }
 

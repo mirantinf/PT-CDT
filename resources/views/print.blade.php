@@ -40,11 +40,11 @@ header {
 
 #logo {
   float: left;
-  margin-top: 8px;
+  margin-top: 15px;
 }
 
 #logo img {
-  height: 70px;
+  height: 80px;
 }
 
 #company {
@@ -212,7 +212,7 @@ footer {center
   <body>
     <header class="clearfix">
       <div id="logo">
-        <img src="public/img/cdt.png">
+        <img src="{{ public_path('assets/images/cdt.png')}}">
       </div>
       <div id="company">
         <h2 class="name">PT Cemerlang Digital Techindo</h2>
@@ -228,7 +228,7 @@ footer {center
         </div>
         <div id="invoice">
           <h1>INVOICE <strong>#{{'INV/CDT/'. (\Carbon\Carbon::parse($invoice->created_at)->format('Y/m/').$invoice->id)}}</strong></h1>
-          <div class="date">Date:{{ $invoice->created_at->format('D, d M Y') }}</div>
+          <div class="date">Date:{{\Carbon\Carbon::now()->locale('id')->isoFormat('dddd D MMM Y') }}</div>
         </div>
       </div>
       <table border="0" cellspacing="1" cellpadding="1">
@@ -265,10 +265,6 @@ footer {center
           </tr>
       </table>
       <div id="thanks">Thank you!</div>
-      <div id="notices">
-        <div>NOTICE:</div>
-        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
-      </div>
     </main>
     <footer>
       Invoice was created on a computer and is valid without the signature and seal.
