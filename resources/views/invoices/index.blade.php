@@ -51,7 +51,7 @@
                                     </span>
                                 @endif</td>
                                 <td>{{ $invoice->item_name }}</td>
-                                <td>{{ $invoice->price }}</td>
+                                <td>  @currency ($invoice->price)</td>
                                 <td>
                                     <form action="{{ URL::to('invoices/destroy/'.$invoice->id) }}" method="POST">
                                         <a class="btn btn-warning" href="{{ URL::to('invoices/print', $invoice->id) }}" >Print</a>

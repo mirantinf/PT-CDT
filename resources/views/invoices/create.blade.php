@@ -49,6 +49,7 @@
 
                 <div class="form-group">
                     <strong>Harga</strong>
+                    <span class="input-group-text">Rp</span>
                     <input type="text" name="price" class="form-control" placeholder="Harga">
                 </div>
 
