@@ -78,8 +78,8 @@ class InvoiceController extends Controller
     public function generateInvoice($invoiceId) {
     $invoice = Invoice::with(['project'])->findOrFail(intval($invoiceId));
     $pdf = PDF::loadView('print', ['invoice' => $invoice]);
-    return $pdf->stream();
-    //sreturn $pdf->download('cdt_invoice.pdf');
+    //return $pdf->stream();
+    return $pdf->download('cdt_invoice.pdf');
 }
 }
 
