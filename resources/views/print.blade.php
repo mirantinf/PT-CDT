@@ -272,7 +272,7 @@ footer {center
         <div class="row">
             <div class="col-8">
                 <p class="m-0 font-weight-bold"> Payment Details: </p>
-                <div class="txn mt-2"><b>Contact: </b>(+91) 85913-26488 <br> <b>Email: </b>info@2frnd.com <br> <b>Email: </b>info@2frnd.com</div>
+                <div class="txn mt-2"><b>Account# </b>4270335191 <br> <b>A/C Name: </b>PT CEMERLANG DIGITAL TEC <br> <b>Bank Details: </b>BCA</div>
             </div>
         </div>
       <div id="thanks">Thank you!</div>
