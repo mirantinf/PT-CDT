@@ -8,7 +8,11 @@
   font-family: SourceSansPro;
   src: url(SourceSansPro-Regular.ttf);
 }
-
+.balance-info .table td,
+.balance-info .table th {
+    padding: 0;
+    border: 0;
+}
 .clearfix:after {
   content: "";
   display: table;
@@ -16,7 +20,7 @@
 }
 
 a {
-  color: #0087C3;
+  color: #1b2c43;
   text-decoration: none;
 }
 
@@ -35,7 +39,7 @@ body {
 header {
   padding: 10px 0;
   margin-bottom: 20px;
-  border-bottom: 1px solid #AAAAAA;
+  border-bottom: 1px solid #1b2c43;
 }
 
 #logo {
@@ -59,7 +63,7 @@ header {
 
 #client {
   padding-left: 6px;
-  border-left: 6px solid #0087C3;
+  border-left: 6px solid #1b2c43;
   float: left;
 }
 
@@ -79,7 +83,7 @@ h2.name {
 }
 
 #invoice h1 {
-  color: #0087C3;
+  color: #1b2c43;
   font-size: 1.1em;
   line-height: 1em;
   font-weight: normal;
@@ -116,7 +120,7 @@ table td {
 }
 
 table td h3{
-  color: #2474dc;
+  color: #1b2c43;
   font-size: 1.2em;
   font-weight: normal;
   margin: 0 0 0.2em 0;
@@ -125,7 +129,7 @@ table td h3{
 table .no {
   color: #FFFFFF;
   font-size: 1.2em;
-  background: #2474dc;
+  background: #1b2c43;
 }
 
 table .desc {
@@ -140,7 +144,7 @@ table .qty {
 }
 
 table .total {
-  background: #2474dc;
+  background: #1b2c43;
   color: #FFFFFF;
 }
 
@@ -168,9 +172,9 @@ table tfoot tr:first-child td {
 }
 
 table tfoot tr:last-child td {
-  color: #2474dc;
+  color: #1b2c43;
   font-size: 1.4em;
-  border-top: 1px solid #2474dc;
+  border-top: 1px solid #1b2c43;
 
 }
 
@@ -234,7 +238,7 @@ footer {center
       <table border="0" cellspacing="1" cellpadding="1">
         <thead>
           <tr>
-            <th class="no">No</th>
+            <th class="no" width="10px">No</th>
             <th class="unit">Project</th>
             <th class="unit">Item Name</th>
             <th class="total">Price</th>
@@ -264,6 +268,13 @@ footer {center
               </tfoot>
           </tr>
       </table>
+      <section class="balance-info">
+        <div class="row">
+            <div class="col-8">
+                <p class="m-0 font-weight-bold"> Payment Details: </p>
+                <div class="txn mt-2"><b>Contact: </b>(+91) 85913-26488 <br> <b>Email: </b>info@2frnd.com <br> <b>Email: </b>info@2frnd.com</div>
+            </div>
+        </div>
       <div id="thanks">Thank you!</div>
     </main>
     <footer>
