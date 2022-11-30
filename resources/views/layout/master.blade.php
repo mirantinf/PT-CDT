@@ -62,6 +62,7 @@
                   <a class="collapse-item" href="{{ url('statuses') }}">Status</a>
                   <a class="collapse-item" href="{{ url('projects') }}">Data Klien</a>
                   <a class="collapse-item" href="{{ url('invoices') }}">Invoice</a>
+                  <a class="collapse-item" href="{{ url('payments') }}">Payment</a>
                </div>
             </div>
          </li>

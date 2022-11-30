@@ -12,4 +12,8 @@ class Invoice extends Model
     public function project() {
         return $this->belongsTo(Project::class);
     }
+    public function payments()
+    {
+        return $this->hasOne(Payment::class);
+    }
 }

@@ -5,8 +5,7 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\PDFController;
-
+use App\Http\Controllers\PaymentController;
 
 
 /*
@@ -49,6 +48,11 @@ Route::get('invoices/edit/{invoiceId}', [InvoiceController::class, 'edit']);
 Route::patch('invoices/update/{invoiceId}', [InvoiceController::class, 'update']);
 Route::delete('invoices/destroy/{invoiceId}', [InvoiceController::class, 'destroy']);
 
+Route::get('/payments', [PaymentController::class, 'index']);
+Route::get('/add-payment', [PaymentController::class, 'paymentindex'])->name('add-payment');
+Route::get('/payments/create-payment', [PaymentController::class, 'create'])->name('create-payment');
+Route::post('payments/create', [PaymentController::class, 'store'])->name('create');
+Route::delete('payments/destroy/{paymentId}', [PaymentController::class, 'destroy']);
 
 Route::get('invoices/print/{invoiceId}',  [InvoiceController::class, 'generateInvoice']);
 });
