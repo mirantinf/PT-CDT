@@ -37,8 +37,8 @@ class PaymentController extends Controller
 
       $imageName = time() . '.' . $request->file->extension();
       // $request->image->move(public_path('images'), $imageName);
-      $request->file->storeAs('public/image', $imageName);
-
+    //   $request->file->storeAs('public/image', $imageName);
+      $request->file->storeAs('images', $imageName, 'public_uploads');
       $payments = ['image' => $imageName, 'description' => $request->description, ];
 
       Payment::create($payments);
