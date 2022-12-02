@@ -16,16 +16,21 @@ class PaymentController extends Controller
         ->with('payments', $payments);
     }
 
-    public function paymentindex()
+    public function paymentindex($invoiceId)
     {
-        $payments = Invoice::with('payments')->paginate(100);
+        $payments = Payment::with('invoices')
+            ->where('invoice_id', $invoiceId)
+            ->paginate(20);
+
         return view('payments.payment')
+        ->with('invoiceId', $invoiceId)
         ->with('payments', $payments);
     }
 
-    public function create()
+    public function create($invoiceId)
     {
-        return view('payments.create');
+        return view('payments.create')
+            ->with('invoiceId', $invoiceId);
     }
 
     public function store(Request $request)
@@ -39,15 +44,22 @@ class PaymentController extends Controller
       // $request->image->move(public_path('images'), $imageName);
     //   $request->file->storeAs('public/image', $imageName);
       $request->file->storeAs('images', $imageName, 'public_uploads');
-      $payments = ['image' => $imageName, 'description' => $request->description, ];
 
-      Payment::create($payments);
-      return redirect('/add-payment')->with(['added successfully!']);
+      $payment = new Payment;
+
+      $payment->image = $imageName;
+      $payment->description = $request->description;
+      $payment->invoice_id = $request->invoiceId;
+
+      $payment->save();
+
+      return redirect('/add-payment/'.$request->invoiceId)->with(['added successfully!']);
 }
 
 
-public function edit(payment $payment) {
-    return view('payment.edit', ['payment' => $payment]);
+public function edit($paymentId) {
+    $payment = Payment::findOrFail($paymentId);
+    return view('payments.edit', ['payment' => $payment]);
   }
 
   /**
@@ -61,7 +73,7 @@ public function edit(payment $payment) {
     $imageName = '';
     if ($request->hasFile('file')) {
       $imageName = time() . '.' . $request->file->extension();
-      $request->file->storeAs('public/images', $imageName);
+      $request->file->storeAs('images', $imageName, 'public_uploads');
       if ($payment->image) {
         Storage::delete('public/images/' . $payment->image);
       }
