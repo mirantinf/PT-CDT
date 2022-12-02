@@ -65,7 +65,9 @@ public function edit($paymentId) {
   }
 
 
-  public function update(Request $request, Payment $payment) {
+  public function update(Request $request, $paymentId) {
+    $payment = Payment::findOrFail($paymentId);
+
     $imageName = '';
     if ($request->hasFile('file')) {
       $imageName = time() . '.' . $request->file->extension();
@@ -78,15 +80,17 @@ public function edit($paymentId) {
     }
     $payment->image = $imageName;
     $payment->description = $request->description;
-    dd($payment);
     $payment->update();
     return redirect('/add-payment/'.$payment->invoice_id);
   }
 
-    public function destroy(Request $request, Payment $payment) {
+    public function destroy($paymentId) {
+    dd($paymentId);
+    $payment = Payment::findOrFail($paymentId);
     Storage::delete('uploads/images/' . $payment->image);
     $payment->delete();
-    return redirect('/add-payment/'.$request->invoiceId);
+    return redirect('/add-payment/'.$payment->invoice_id);
   }
+
 }
 

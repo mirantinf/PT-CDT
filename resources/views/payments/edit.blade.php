@@ -6,7 +6,7 @@
                 <h2>Edit</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ URL::to('/add-payment') }}"> Back</a>
+
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@
                 <div class="my-2">
                     <input type="file" name="file" id="file" accept="image/*" class="form-control">
                   </div>
-                  <img src="{{ asset('uploads/images/'.$payment->image) }}" class="img-fluid img-thumbnail" width="150">
+                  <img src="{{ asset("/uploads/images/$payment->image") }}" class="img-fluid img-thumbnail">
                 <div class="form-group">
                     <strong>Keterangan</strong>
                     <input type="text" name="description"  class="form-control" value="{{$payment->description}}">
