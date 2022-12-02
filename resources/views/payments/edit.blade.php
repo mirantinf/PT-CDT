@@ -6,7 +6,7 @@
                 <h2>Edit</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ URL::to('/invoices') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ URL::to('/add-payment') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -22,33 +22,20 @@
         </div>
     @endif
 
-    <form action="{{ URL::to('/invoices/update/'.$invoice->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ URL::to('/payments/update/'.$payment->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         @method('PATCH')
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="my-2">
+                    <input type="file" name="file" id="file" accept="image/*" class="form-control">
+                  </div>
+                  <img src="{{ asset('uploads/images/'.$payment->image) }}" class="img-fluid img-thumbnail" width="150">
                 <div class="form-group">
-                    <strong>No invoice</strong>
-                    <input type="text" name="no_invoice"  class="form-control" value="{{$invoice->no_invoice}}">
-                </div>
-                <div class="form-group">
-                    <strong>List Project</strong>
-                    <select class="form-control" name="project_id">
-                        @foreach ($projects as $project)
-                            <option value="{{ $project->id}}" @if ($project->project_id === $project->id)selected @endif>{{ $project->project_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                    <strong>Nama Item</strong>
-                    <input type="text" name="item_name"  class="form-control" value="{{$invoice->item_name}}">
-                </div>
-                <div class="form-group">
-                    <strong>Harga</strong>
-                    <span class="input-group-text">Rp</span>
-                    <input type="text" name="price"  class="form-control" value="{{$invoice->price}}">
+                    <strong>Keterangan</strong>
+                    <input type="text" name="description"  class="form-control" value="{{$payment->description}}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

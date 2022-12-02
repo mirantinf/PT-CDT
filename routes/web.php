@@ -53,6 +53,8 @@ Route::get('/add-payment', [PaymentController::class, 'paymentindex'])->name('ad
 Route::get('/payments/create-payment', [PaymentController::class, 'create'])->name('create-payment');
 Route::post('payments/create', [PaymentController::class, 'store'])->name('create');
 Route::delete('payments/destroy/{paymentId}', [PaymentController::class, 'destroy']);
+Route::get('payments/edit/{paymentId}', [PaymentController::class, 'edit']);
+Route::patch('payments/update/{paymentId}', [PaymentController::class, 'update']);
 
 Route::get('invoices/print/{invoiceId}',  [InvoiceController::class, 'generateInvoice']);
 });

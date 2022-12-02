@@ -46,8 +46,9 @@ class PaymentController extends Controller
 }
 
 
-public function edit(payment $payment) {
-    return view('payment.edit', ['payment' => $payment]);
+public function edit($paymentId) {
+    $payment = Payment::findOrFail($paymentId);
+    return view('payment.edit');
   }
 
   /**
@@ -57,26 +58,28 @@ public function edit(payment $payment) {
    * @param  AppModelspayment  $payment
    * @return IlluminateHttpResponse
    */
-  public function update(Request $request, payment $payment) {
+  public function update(Request $request, $paymentId) {
+    $payment = Payment::findOrFail($paymentId);
     $imageName = '';
     if ($request->hasFile('file')) {
       $imageName = time() . '.' . $request->file->extension();
-      $request->file->storeAs('public/images', $imageName);
+      $request->file->storeAs('images', $imageName, 'public_uploads');
       if ($payment->image) {
-        Storage::delete('public/images/' . $payment->image);
+        Storage::delete('uploads/images/' . $payment->image);
       }
     } else {
       $imageName = $payment->image;
     }
 
-    $paymentData = ['title' => $request->title, 'category' => $request->category, 'content' => $request->content, 'image' => $imageName];
+    $payments = ['title' => $request->title, 'category' => $request->category, 'content' => $request->content, 'image' => $imageName];
 
-    $payment->update($paymentData);
+    $payment->update($payments);
     return redirect('/payment')->with(['message' => 'payment updated successfully!', 'status' => 'success']);
   }
 
-public function destroy(payment $payment) {
-    Storage::delete('public/image/' . $payment->image);
+public function destroy($paymentId) {
+    $payment = Payment::findOrFail($paymentId);
+    Storage::delete('uploads/images/' . $payment->image);
     $payment->delete();
     return redirect('/add-payment');
   }
