@@ -78,7 +78,6 @@ public function edit($paymentId) {
     }
     $payment->image = $imageName;
     $payment->description = $request->description;
-    $payment->invoice_id = $request->invoiceId;
     dd($payment);
     $payment->update();
     return redirect('/add-payment/'.$payment->invoice_id);
