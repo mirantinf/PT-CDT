@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Add new</h2>
@@ -10,7 +10,7 @@
                 <a class="btn btn-primary" href="{{ URL::to('/add-payment') }}"> Back</a>
             </div>
         </div>
-    </div>
+    </div> --}}
     <br>
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -25,7 +25,7 @@
 
     <form action="{{ URL::to('/payments/create') }}" method="POST" enctype="multipart/form-data">
         @csrf
-
+        <input type="hidden" name="invoiceId" value="{{$invoiceId}}">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="my-2">
