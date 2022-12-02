@@ -49,11 +49,13 @@ Route::patch('invoices/update/{invoiceId}', [InvoiceController::class, 'update']
 Route::delete('invoices/destroy/{invoiceId}', [InvoiceController::class, 'destroy']);
 
 Route::get('/payments', [PaymentController::class, 'index']);
-Route::get('/add-payment', [PaymentController::class, 'paymentindex'])->name('add-payment');
-Route::get('/payments/create-payment', [PaymentController::class, 'create'])->name('create-payment');
-Route::post('payments/create', [PaymentController::class, 'store'])->name('create');
-Route::delete('payments/destroy/{paymentId}', [PaymentController::class, 'destroy']);
-Route::get('payments/edit/{paymentId}', [PaymentController::class, 'edit']);
+Route::get('/add-payment/{invoiceId}', [PaymentController::class, 'paymentindex'])->name('add-payment');
+Route::get('/payments/create-payment/{invoiceId}', [PaymentController::class, 'create'])->name('create-payment');
+Route::post('/payments/create', [PaymentController::class, 'store'])->name('create');
+Route::get('/payments/edit/{invoiceId}', [PaymentController::class, 'edit']);
+Route::patch('/payments/update', [PaymentController::class, 'update']);
+Route::delete('payments/destroy', [PaymentController::class, 'destroy']);
+Route::get('payments/edit/{invoiceId}', [PaymentController::class, 'edit']);
 Route::patch('payments/update/{paymentId}', [PaymentController::class, 'update']);
 
 Route::get('invoices/print/{invoiceId}',  [InvoiceController::class, 'generateInvoice']);

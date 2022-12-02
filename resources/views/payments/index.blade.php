@@ -52,7 +52,7 @@
                                 <td>{{ $payment->item_name }}</td>
                                 <td>  @currency ($payment->price)</td>
                                 <td>
-                                    <a class="btn btn-danger" href="{{ URL::to('/add-payment') }}">Konfirmasi Pembayaran</a>
+                                    <a class="btn btn-danger" href="{{ URL::to('/add-payment/'.$payment->id) }}">Konfirmasi Pembayaran</a>
                                 </tbody>
 					        @endforeach
 				</table>

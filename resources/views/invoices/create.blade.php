@@ -7,7 +7,7 @@
                 <h2>Add new</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ URL::to('/invoices/index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ URL::to('/invoices') }}"> Back</a>
             </div>
         </div>
     </div>
