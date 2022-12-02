@@ -41,7 +41,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="{{ asset('/image/'.$payment->image) }}" class="card-img-top img-fluid">
+                                    <img src="{{asset("/uploads/images/$payment->image")}}" class="card-img-top img-fluid">
                                 </td>
                                 <td>{{ $payment->description }}</td>
                                 <td>
