@@ -35,7 +35,7 @@
                   </div>
 
                   <div class="my-2">
-                    <textarea name="description" id="description" rows="6" class="form-control @error('description') is-invalid @enderror" placeholder="Post description">{{ old('description') }}</textarea>
+                    <textarea name="description" id="description" rows="6" class="form-control @error('description') is-invalid @enderror" placeholder="Keterangan">{{ old('description') }}</textarea>
                     @error('description')
                       <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

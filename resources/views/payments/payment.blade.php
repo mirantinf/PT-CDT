@@ -4,7 +4,7 @@
 	<div class="col-lg-12">
 		<div class="card">
 			<div class="card-header">
-				<h4>Invoice</h4>
+				<h4>Pembayaran</h4>
                 <a class="btn btn-success" href="{{ URL::to('/payments/create-payment/'.$invoiceId) }}">Add</a>
 			</div>
 			<div class="card-body">
