@@ -85,12 +85,11 @@ public function edit($paymentId) {
   }
 
     public function destroy($paymentId) {
-    dd($paymentId);
     $payment = Payment::findOrFail($paymentId);
+    $invoiceId = $payment->iinvoice_id;
     Storage::delete('uploads/images/' . $payment->image);
     $payment->delete();
-    return redirect('/add-payment/'.$payment->invoice_id);
+    return redirect('/add-payment/'.$invoiceId);
   }
 
 }
-
