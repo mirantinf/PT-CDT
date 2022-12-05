@@ -45,7 +45,7 @@
                                 </td>
                                 <td>{{ $payment->description }}</td>
                                 <td>
-                                    <form action="{{ URL::to('payments/destroy/'.$payment->id) }}" method="POST">
+                                    <form action="{{ URL::to('payments/destroy/'.$payment->id) }}" method="GET">
                                         <a class="btn btn-primary" href="{{ URL::to('payments/edit/'.$payment->id) }}">Edit</a>
                                         <button type="submit" class="btn btn-danger">Delete</button>
 
