@@ -1,10 +1,10 @@
-@extends('layouts.master')
+@extends('payments.master')
 @section('content')
 <div class="container-fluid">
 	<div class="col-lg-12">
 		<div class="card">
 			<div class="card-header">
-				<h4>Pembayaran</h4>
+				<h4>Payment</h4>
 			</div>
 			<div class="card-body">
 				@if (session('sukses'))

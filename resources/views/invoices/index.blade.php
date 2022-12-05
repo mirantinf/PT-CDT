@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('invoices.master')
 @section('content')
 <div class="container-fluid">
 	<div class="col-lg-12">
