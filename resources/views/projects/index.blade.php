@@ -4,7 +4,7 @@
 	<div class="col-lg-12">
 		<div class="card">
 			<div class="card-header">
-				<h4>Data Project</h4>
+				<h4>Data Klien</h4>
                 <a class="btn btn-success" href="{{ URL::to('/projects/create-page')}}">Add</a>
 			</div>
 			<div class="card-body">
