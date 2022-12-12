@@ -34,7 +34,7 @@
 						<tr>
 						<th>No</th>
                             <th>No Invoice</th>
-							<th>Project</th>
+							<th>Projek</th>
                             <th>Nama Item</th>
                             <th>Harga</th>
                             <th>Action</th>
