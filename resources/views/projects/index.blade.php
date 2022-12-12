@@ -34,10 +34,10 @@
 					<thead>
 						<tr>
                             <th>No</th>
-                            <th>Nama Project</th>
-							<th>Nama Client</th>
-							<th>Tlp Client</th>
-							<th>Informasi Project</th>
+                            <th>Nama Projek</th>
+							<th>Nama Klien</th>
+							<th>Tlp Klien</th>
+							<th>Informasi Projek</th>
 							<th>Budget</th>
 							<th>Status</th>
 							<th>Action</th>
